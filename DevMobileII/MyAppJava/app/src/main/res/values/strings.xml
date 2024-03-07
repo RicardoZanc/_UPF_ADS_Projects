@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">App em Java</string>
     <string name="menu">Menu</string>
+
+    <string name="main_title">Atividades do aluno</string>
+    <string name="main_desc">Fique atento aos prazos, não atrase!</string>
 </resources>
