@@ -25,6 +25,18 @@ public class Pessoa {
         
     }
     
+    public String[] stringfyPessoa(){
+        String[] stringfiedPessoa = {
+            nome,
+            Integer.toString(cpf),
+            String.valueOf(peso),
+            String.valueOf(altura),
+            String.valueOf(imc),
+            interpretacao
+        };
+        return stringfiedPessoa;
+    }
+    
     public String getNome() {
         return nome;
     }

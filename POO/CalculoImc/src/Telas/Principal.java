@@ -24,9 +24,9 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel dtm = (DefaultTableModel) tablePessoas.getModel();
         dtm.setRowCount(0);
-        dtm.addRow(new String [] {
-            "Teste", "Teste","Teste","Teste","Teste","Teste"
-        });
+        for(Pessoa p : pessoas){
+            dtm.addRow(p.stringfyPessoa());
+        }
     }
 
     /**
