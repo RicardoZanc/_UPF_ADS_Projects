@@ -4,17 +4,29 @@
  */
 package Telas;
 
+import Dominio.Pessoa;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ricar
  */
 public class Principal extends javax.swing.JFrame {
 
+    public ArrayList<Pessoa> pessoas = new ArrayList();
+    
     /**
      * Creates new form Principal
      */
     public Principal() {
+        pessoas.add(new Pessoa("Fulano", 03526202001, 65f, 1.70f));
         initComponents();
+        DefaultTableModel dtm = (DefaultTableModel) tablePessoas.getModel();
+        dtm.setRowCount(0);
+        dtm.addRow(new String [] {
+            "Teste", "Teste","Teste","Teste","Teste","Teste"
+        });
     }
 
     /**
