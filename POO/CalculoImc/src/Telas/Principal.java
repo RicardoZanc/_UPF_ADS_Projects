@@ -14,7 +14,18 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Principal extends javax.swing.JFrame {
 
-    public ArrayList<Pessoa> pessoas = new ArrayList();
+    public static ArrayList<Pessoa> pessoas = new ArrayList();
+    
+    public static Principal Instance;
+    
+    public void Atualizar(){
+        DefaultTableModel dtm = (DefaultTableModel) tablePessoas.getModel();
+        dtm.setRowCount(0);
+        for(Pessoa p : pessoas){
+            dtm.addRow(p.stringfyPessoa());
+        }
+    }
+    
     
     /**
      * Creates new form Principal
@@ -22,11 +33,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         pessoas.add(new Pessoa("Fulano", 03526202001, 65f, 1.70f));
         initComponents();
-        DefaultTableModel dtm = (DefaultTableModel) tablePessoas.getModel();
-        dtm.setRowCount(0);
-        for(Pessoa p : pessoas){
-            dtm.addRow(p.stringfyPessoa());
-        }
+        Instance = this;
+        Atualizar();
     }
 
     /**
@@ -46,6 +54,11 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Adicionar.setText("Adicionar");
+        Adicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdicionarActionPerformed(evt);
+            }
+        });
 
         Excluir.setText("Excluir");
 
@@ -88,6 +101,11 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarActionPerformed
+        AdicionarPessoa adicionarPessoa = new AdicionarPessoa();
+        adicionarPessoa.setVisible(true);
+    }//GEN-LAST:event_AdicionarActionPerformed
 
     /**
      * @param args the command line arguments
