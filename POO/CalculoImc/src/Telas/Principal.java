@@ -4,6 +4,7 @@
  */
 package Telas;
 
+import Dominio.Estatistica;
 import Dominio.Pessoa;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -15,17 +16,21 @@ import javax.swing.table.DefaultTableModel;
 public class Principal extends javax.swing.JFrame {
 
     public static ArrayList<Pessoa> pessoas = new ArrayList();
+    public Estatistica estatistica = new Estatistica();
     
     public static Principal Instance;
     
     public void Atualizar(){
+        estatistica.Zerar();
         DefaultTableModel dtm = (DefaultTableModel) tablePessoas.getModel();
         dtm.setRowCount(0);
         for(Pessoa p : pessoas){
+            estatistica.Teste(p);
             dtm.addRow(p.stringfyPessoa());
         }
+        estatistica.Imprime();
     }
-    
+        
     
     /**
      * Creates new form Principal
@@ -84,7 +89,7 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(Adicionar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Excluir))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -94,9 +99,9 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Adicionar)
                     .addComponent(Excluir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();

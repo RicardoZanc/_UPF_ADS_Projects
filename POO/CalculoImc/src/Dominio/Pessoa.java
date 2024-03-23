@@ -4,6 +4,7 @@
  */
 package Dominio;
 
+
 /**
  *
  * @author ricar
@@ -20,7 +21,8 @@ public class Pessoa {
         this.nome = nome;
         this.cpf = cpf;
         this.peso = peso;
-        this.altura = altura;        this.setImc();
+        this.altura = altura;        
+        this.setImc();
         this.setInterpretacao();
         
     }
@@ -29,9 +31,9 @@ public class Pessoa {
         String[] stringfiedPessoa = {
             nome,
             Integer.toString(cpf),
-            String.valueOf(peso),
-            String.valueOf(altura),
-            String.valueOf(imc),
+            String.format("%.02f kg",peso),
+            String.format("%.02f m", altura),
+            String.format("%.02f", imc),
             interpretacao
         };
         return stringfiedPessoa;
