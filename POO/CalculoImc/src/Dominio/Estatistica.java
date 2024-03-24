@@ -4,6 +4,8 @@
  */
 package Dominio;
 
+import Telas.Principal;
+
 /**
  *
  * @author ricar
@@ -16,6 +18,14 @@ public class Estatistica {
     public int obesidadeI;
     public int obesidadeII;
     public int obesidadeIII;
+    
+    public String muitoAbaixoPorcentagem;
+    public String abaixoPorcentagem;
+    public String normalPorcentagem;
+    public String acimaPorcentagem;
+    public String obesidadeIPorcentagem;
+    public String obesidadeIIPorcentagem;
+    public String obesidadeIIIPorcentagem;
     
     public void Zerar(){
         muitoAbaixo = 0;
@@ -60,4 +70,31 @@ public class Estatistica {
         System.out.println("Obesidade II: "+obesidadeII);
         System.out.println("Obesidade III: "+obesidadeIII);
     }
+    
+    public void definePorcentagem(int QtdePessoas){
+        float muitoAbaixoPorcentagem = (muitoAbaixo*100)/QtdePessoas;
+        this.muitoAbaixoPorcentagem = String.format("%.02f", muitoAbaixoPorcentagem);
+        
+        float abaixoPorcentagem = (abaixo*100)/QtdePessoas;
+        this.abaixoPorcentagem = String.format("%.02f", abaixoPorcentagem);
+        
+        float normalPorcentagem = (normal*100)/QtdePessoas;
+        this.normalPorcentagem = String.format("%.02f", normalPorcentagem);
+        
+        float acimaPorcentagem = (acima*100)/QtdePessoas;
+        this.acimaPorcentagem = String.format("%.02f", acimaPorcentagem);
+        
+        float obesidadeIPorcentagem = (obesidadeI*100)/QtdePessoas;
+        this.obesidadeIPorcentagem = String.format("%.02f", obesidadeIPorcentagem);
+        
+        float obesidadeIIPorcentagem = (obesidadeII*100)/QtdePessoas;
+        this.obesidadeIIPorcentagem = String.format("%.02f", obesidadeIIPorcentagem);
+        
+        float obesidadeIIIPorcentagem = (obesidadeIII*100)/QtdePessoas;
+        this.obesidadeIIIPorcentagem = String.format("%.02f", obesidadeIIIPorcentagem);
+        
+    }
+    
+    
+    
 }

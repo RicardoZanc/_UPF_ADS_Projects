@@ -135,7 +135,7 @@ public class AdicionarPessoa extends javax.swing.JFrame {
 
     private void btnAdiconarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdiconarActionPerformed
         String nome = txtNome.getText();
-        int cpf = Integer.parseInt(txtCPF.getText());
+        long cpf = Long.parseLong(txtCPF.getText());
         float peso = Float.parseFloat(txtPeso.getText());
         float altura = Float.parseFloat(txtAltura.getText());
         

@@ -23,20 +23,32 @@ public class Principal extends javax.swing.JFrame {
     public void Atualizar(){
         estatistica.Zerar();
         DefaultTableModel dtm = (DefaultTableModel) tablePessoas.getModel();
-        dtm.setRowCount(0);
-        for(Pessoa p : pessoas){
-            estatistica.Teste(p);
-            dtm.addRow(p.stringfyPessoa());
+            if (pessoas.size()>0){
+            dtm.setRowCount(0);
+            for(Pessoa p : pessoas){
+                estatistica.Teste(p);
+                dtm.addRow(p.stringfyPessoa());
+            }
+            estatistica.definePorcentagem(pessoas.size());
+            MostrarPorcentagem();
         }
-        estatistica.Imprime();
     }
-        
+    
+    public void MostrarPorcentagem(){
+        txtMuitoAbaixo.setText(estatistica.muitoAbaixoPorcentagem + "%");
+        txtAbaixo.setText(estatistica.abaixoPorcentagem + "%");
+        txtNormal.setText(estatistica.normalPorcentagem + "%");
+        txtAcima.setText(estatistica.acimaPorcentagem + "%");
+        txtObesidadeI.setText(estatistica.obesidadeIPorcentagem + "%");
+        txtObesidadeII.setText(estatistica.obesidadeIIPorcentagem + "%");
+        txtObesidadeIII.setText(estatistica.obesidadeIIIPorcentagem + "%");
+    }
     
     /**
      * Creates new form Principal
      */
     public Principal() {
-        pessoas.add(new Pessoa("Fulano", 03526202001, 65f, 1.70f));
+        // pessoa teste pessoas.add(new Pessoa("Fulano", 03526202001, 65f, 1.70f));
         initComponents();
         Instance = this;
         Atualizar();
@@ -52,9 +64,22 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         Adicionar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePessoas = new javax.swing.JTable();
+        txtMuitoAbaixo = new javax.swing.JLabel();
+        txtAbaixo = new javax.swing.JLabel();
+        txtNormal = new javax.swing.JLabel();
+        txtAcima = new javax.swing.JLabel();
+        txtObesidadeI = new javax.swing.JLabel();
+        txtObesidadeII = new javax.swing.JLabel();
+        txtObesidadeIII = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,8 +89,6 @@ public class Principal extends javax.swing.JFrame {
                 AdicionarActionPerformed(evt);
             }
         });
-
-        Excluir.setText("Excluir");
 
         tablePessoas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,6 +100,34 @@ public class Principal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tablePessoas);
 
+        txtMuitoAbaixo.setText("100,00%");
+
+        txtAbaixo.setText("100,00%");
+
+        txtNormal.setText("100,00%");
+
+        txtAcima.setText("100,00%");
+
+        txtObesidadeI.setText("100,00%");
+
+        txtObesidadeII.setText("100,00%");
+
+        txtObesidadeIII.setText("100,00%");
+
+        jLabel1.setText("Muito abaixo:");
+
+        jLabel2.setText("Abaixo:");
+
+        jLabel3.setText("Saudavel:");
+
+        jLabel4.setText("Acima:");
+
+        jLabel5.setText("Obesidade I:");
+
+        jLabel6.setText("Obesidade II:");
+
+        jLabel13.setText("Obesidade III:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,24 +135,79 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 667, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Adicionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Excluir))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNormal))
+                            .addComponent(Adicionar, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAbaixo))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAcima))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtObesidadeI))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMuitoAbaixo))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(6, 6, 6)
+                                    .addComponent(jLabel13)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtObesidadeIII))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtObesidadeII))))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Adicionar)
-                    .addComponent(Excluir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(Adicionar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMuitoAbaixo)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAbaixo)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNormal)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAcima)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtObesidadeI)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtObesidadeII)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtObesidadeIII)
+                    .addComponent(jLabel13))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -149,8 +255,21 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Adicionar;
-    private javax.swing.JButton Excluir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablePessoas;
+    private javax.swing.JLabel txtAbaixo;
+    private javax.swing.JLabel txtAcima;
+    private javax.swing.JLabel txtMuitoAbaixo;
+    private javax.swing.JLabel txtNormal;
+    private javax.swing.JLabel txtObesidadeI;
+    private javax.swing.JLabel txtObesidadeII;
+    private javax.swing.JLabel txtObesidadeIII;
     // End of variables declaration//GEN-END:variables
 }

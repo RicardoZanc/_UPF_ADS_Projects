@@ -11,13 +11,13 @@ package Dominio;
  */
 public class Pessoa {
     private String nome;
-    private int cpf;
+    private long cpf;
     private float peso;
     private float altura;
     private float imc;
     private String interpretacao;
     
-    public Pessoa(String nome, int cpf, float peso, float altura){
+    public Pessoa(String nome, long cpf, float peso, float altura){
         this.nome = nome;
         this.cpf = cpf;
         this.peso = peso;
@@ -30,7 +30,7 @@ public class Pessoa {
     public String[] stringfyPessoa(){
         String[] stringfiedPessoa = {
             nome,
-            Integer.toString(cpf),
+            Long.toString(cpf),
             String.format("%.02f kg",peso),
             String.format("%.02f m", altura),
             String.format("%.02f", imc),
@@ -47,11 +47,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public int getCpf() {
+    public long getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(long cpf) {
         this.cpf = cpf;
     }
 
