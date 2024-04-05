@@ -4,25 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    tools:context=".MainActivity"
-    tools:ignore="ExtraText">
+    tools:context=".MainActivity">
 
-   <ListView
-       android:id="@+id/listViewGuests"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
+    <androidx.appcompat.widget.Toolbar
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        android:id="@+id/toolbar_form"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" >
 
-      />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Formulário"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"/>
 
-   <com.google.android.material.floatingactionbutton.FloatingActionButton
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_margin="8dp"
-       android:contentDescription="Botão adicionar convidado"
-       android:src="@android:drawable/ic_input_add"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent"
-      />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/listViewGuests"
+        android:layout_marginTop="50dp"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:id="@+id/btnAdd"
+        android:contentDescription="Botão adicionar convidado"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
