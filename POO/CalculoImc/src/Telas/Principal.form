@@ -156,7 +156,6 @@
               <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {null, null, null, null}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Nome&quot;, &quot;CPF&quot;, &quot;Peso&quot;, &quot;Altura&quot;, &quot;IMC&quot;, &quot;Interpreta&#xe7;&#xe3;o&quot;&#xa;    }&#xa;)" type="code"/>
             </Property>
             <Property name="cellSelectionEnabled" type="boolean" value="true"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

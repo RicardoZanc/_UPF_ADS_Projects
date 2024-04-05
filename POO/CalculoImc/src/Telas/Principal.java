@@ -100,7 +100,6 @@ public class Principal extends javax.swing.JFrame {
             }
         ));
         tablePessoas.setCellSelectionEnabled(true);
-        tablePessoas.setEnabled(false);
         jScrollPane1.setViewportView(tablePessoas);
 
         txtMuitoAbaixo.setText("00,00%");
