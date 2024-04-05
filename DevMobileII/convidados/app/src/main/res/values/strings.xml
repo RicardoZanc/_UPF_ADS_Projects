@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">convidados</string>
+    <string name="app_name">Convidados</string>
+    <string name="cadastre_se">Ainda não é cadastrado? Cadastre-se!</string>
 </resources>

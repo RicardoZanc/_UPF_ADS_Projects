@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "393011436884",
+    "project_id": "guestappfirebase-3cecd",
+    "storage_bucket": "guestappfirebase-3cecd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393011436884:android:6a209f3acfd4d36abfbcc1",
+        "android_client_info": {
+          "package_name": "com.example.guestappfirebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADKqSCGknq1dIlGYTWwvhOZaxntnpsoZY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
