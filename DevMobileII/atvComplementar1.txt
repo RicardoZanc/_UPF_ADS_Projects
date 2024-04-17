@@ -1,0 +1,20 @@
+fun main() {
+    val amanda = Person("Amanda", 33, "play tennis", null)
+    val atiqah = Person("Atiqah", 28, "climb", amanda)
+    
+    amanda.showProfile()
+    atiqah.showProfile()
+}
+
+class Person(val name: String, val age: Int, val hobby: String?, val refferer: Person?){
+    fun showProfile(){
+        println("Name:" + name)
+        println("Age:" + age)
+        if(hobby!=null){print("Likes to " + hobby + ". ")}
+        if(refferer!=null){
+            println("Has a refferer called " + refferer.name + ", who likes to " + refferer.hobby + ".")
+        } else {
+            println("Doesn't have a refferer.")
+        }
+    }    
+}
